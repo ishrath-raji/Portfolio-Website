@@ -292,26 +292,26 @@ img {
   font-size: var(--big-font-size);
 }
 
-.home__data h1 {
-  overflow: hidden; /***** text effects *****/
+/* .home__data h1 {
+  overflow: hidden; 
   border-right: 0.1em solid var(--first-color);
   white-space: nowrap;
   margin: 0 auto;
   animation: typing 2.5s steps(40, end), blink-caret 0.6s step-end infinite;
-}
+} */
 
 /***** animations *****/ /* The typing effect */
-@keyframes typing {
+/* @keyframes typing {
   from {
     width: 0;
   }
   to {
     width: 100%;
   }
-}
+} */
 
 /***** animations *****/ /* The typewriter cursor effect */
-@keyframes blink-caret {
+/* @keyframes blink-caret {
   from,
   to {
     border-color: transparent;
@@ -319,7 +319,7 @@ img {
   50% {
     border-color: var(--first-color);
   }
-}
+} */
 
 .home__subtitle {
   font-size: var(--h3-font-size);

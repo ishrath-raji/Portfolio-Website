@@ -1,10 +1,13 @@
+import { useState } from 'react';
 import SectionTitle from '../ui/SectionTitle';
 import ProjectCard from '../ui/ProjectCard';
+import ProjectModal from '../ui/ProjectModal';
 import projects from '../../data/projects';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
 
 export default function Projects() {
     const revealRef = useScrollReveal();
+    const [selectedProject, setSelectedProject] = useState(null);
 
     return (
         <section id="projects" className="py-24 bg-slate-50/50 dark:bg-slate-800/30">
@@ -17,11 +20,19 @@ export default function Projects() {
                 >
                     {projects.map((project, i) => (
                         <div key={project.id} className="reveal" style={{ transitionDelay: `${i * 100}ms` }}>
-                            <ProjectCard project={project} />
+                            <ProjectCard
+                                project={project}
+                                onClick={setSelectedProject}
+                            />
                         </div>
                     ))}
                 </div>
             </div>
+
+            <ProjectModal
+                project={selectedProject}
+                onClose={() => setSelectedProject(null)}
+            />
         </section>
     );
 }

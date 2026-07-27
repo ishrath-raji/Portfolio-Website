@@ -1,8 +1,11 @@
 import { LuCalendar } from 'react-icons/lu';
 
-export default function ProjectCard({ project }) {
+export default function ProjectCard({ project, onClick }) {
     return (
-        <div className="glass overflow-hidden group transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg hover:shadow-primary/10">
+        <div
+            onClick={() => onClick?.(project)}
+            className="glass overflow-hidden group transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg hover:shadow-primary/10 cursor-pointer"
+        >
             {project.image ? (
                 <div className="h-44 overflow-hidden flex items-center justify-center bg-white dark:bg-slate-700 p-6">
                     <img
@@ -16,16 +19,31 @@ export default function ProjectCard({ project }) {
             )}
             <div className="p-5">
                 {project.url ? (
-                    <a
-                        href={project.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-base font-bold mb-1.5 block hover:text-primary transition-colors"
-                    >
-                        {project.title} ↗
-                    </a>
+                    <div className="flex items-center justify-between mb-1.5">
+                        <button
+                            onClick={() => onClick?.(project)}
+                            className="text-base font-bold hover:text-primary transition-colors text-left"
+                        >
+                            {project.title}
+                        </button>
+                        <a
+                            href={project.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className="text-[11px] text-primary hover:underline shrink-0 ml-2"
+                            title="Visit website"
+                        >
+                            visit ↗
+                        </a>
+                    </div>
                 ) : (
-                    <h3 className="text-base font-bold mb-1.5">{project.title}</h3>
+                    <button
+                        onClick={() => onClick?.(project)}
+                        className="text-base font-bold mb-1.5 block hover:text-primary transition-colors text-left"
+                    >
+                        {project.title}
+                    </button>
                 )}
                 {project.timeline && (
                     <span className="text-[11px] font-medium text-primary-light flex items-center gap-1 mb-2">

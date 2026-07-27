@@ -88,7 +88,7 @@ export default function Hero() {
                 {/* Scroll indicator */}
                 <a
                     href="#about"
-                    className="absolute -bottom-16 left-1/2 -translate-x-1/2 flex items-center gap-2 text-slate-400 dark:text-slate-500 text-xs font-medium animate-scroll-bounce hidden md:flex"
+                    className="absolute -bottom-48 left-1/2 -translate-x-1/2 flex items-center gap-2 text-slate-400 dark:text-slate-500 text-xs font-medium animate-scroll-bounce hidden md:flex"
                     onClick={(e) => {
                         e.preventDefault();
                         document
